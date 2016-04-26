@@ -1,11 +1,3 @@
-# ----------------------------------------------------------------------------
-# Copyright (c) 2016--, QIIME development team.
-#
-# Distributed under the terms of the Modified BSD License.
-#
-# The full license is in the file LICENSE, distributed with this software.
-# ----------------------------------------------------------------------------
-
 from setuptools import setup, find_packages
 
 setup(
@@ -13,15 +5,16 @@ setup(
     # TODO stop duplicating version string
     version='0.0.0-dev',
     packages=find_packages(),
-    install_requires=['biom-format >= 2.1.5, < 2.2.0', 'scipy', 'IPython',
-                      'ipywidgets', 'seaborn', 'qiime >= 2.0.0'],
-    package_data={'feature_table': ['workflows/*md']},
+    # TODO this plugin depends on conda package bowtie2
+    install_requires=['qiime >= 2.0.0', 'feature_table', 'scikit-bio',
+                      'biom-format'],
+    package_data={'q2ninja_ops': ['workflows/*md']},
     author="Ben, Gabe, Jai",
     author_email="hillmannben@gmail.com",
-    description="Functionality for working with NINJA-OPS.",
-    license="BSD",
+    description="QIIME 2 plugin for working with NINJA-OPS.",
+    license="",
     url="http://www.ninja-ops.ninja",
     entry_points={
-        'qiime.plugin': ['ninja-ops=feature_table.plugin_setup:plugin']
+        'qiime.plugin': ['q2-ninja-ops=q2ninja_ops.plugin_setup:plugin']
     }
 )
