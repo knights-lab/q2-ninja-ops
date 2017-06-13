@@ -34,7 +34,7 @@ def pick_reference_otus(sequences: SequencesWithQuality) -> biom.Table:
         output_directory = os.path.join(tempdir, 'ninja-ops-output')
         skbio.io.write(sequences, format='fasta', into=input_fasta_filepath)
 
-        cmd = ['ninja.py', '-i', input_fasta_filepath, '-o', output_directory]
+        cmds = ['ninja.py', '-i', input_fasta_filepath, '-o', output_directory]
         try:
             run_commands([cmds])
         except subprocess.CalledProcessError as e:
