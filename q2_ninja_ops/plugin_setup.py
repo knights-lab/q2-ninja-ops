@@ -1,7 +1,7 @@
-from qiime.plugin import Plugin, Int
+from qiime2.plugin import Plugin, Int
 
-import q2ninja_ops
-from q2ninja_ops.artifact_types import SequenceData, DNA
+import q2_ninja_ops
+from q2_ninja_ops.artifact_types import SequenceData, DNA
 from feature_table.artifact_types import FeatureTable, Frequency
 
 plugin = Plugin(
@@ -12,7 +12,7 @@ plugin = Plugin(
 )
 
 plugin.register_function(
-    function=q2ninja_ops.pick_reference_otus,
+    function=q2_ninja_ops.pick_reference_otus,
     # TODO make this accept other types of sequence data as input
     inputs={'sequences': SequenceData[DNA]},
     outputs=[('feature_table', FeatureTable[Frequency])],

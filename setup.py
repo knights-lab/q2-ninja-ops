@@ -17,7 +17,6 @@ setup(
     cmdclass=versioneer.get_cmdclass(),
     packages=find_packages(),
     # TODO this plugins depends on conda package bowtie2
-    install_requires=['qiime >= 2.0.0', 'feature_table', 'scikit-bio', 'biom-format'],
     package_data={'feature_table': ['workflows/*md']},
     author="Ben, Gabe, Jai",
     author_email="hillm096@umn.edu",
@@ -25,6 +24,6 @@ setup(
     license="ISC",
     url="http://www.ninja-ops.ninja",
     entry_points={
-        'qiime.plugin': ['q2-ninja-ops=q2ninja_ops.plugin_setup:plugin']
+        'qiime2.plugins': ['ninja-ops=q2_ninja_ops.plugin_setup:plugin']
     }
 )
