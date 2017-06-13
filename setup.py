@@ -14,7 +14,7 @@ setup(
     name="q2-ninja-ops",
     # TODO stop duplicating version string
     version=versioneer.get_version(),
-    cmdclass=versioner.get_cmdclass(),
+    cmdclass=versioneer.get_cmdclass(),
     packages=find_packages(),
     install_requires=['biom-format >= 2.1.5, < 2.2.0', 'scipy', 'IPython',
                       'ipywidgets', 'seaborn', 'qiime >= 2.0.0'],
