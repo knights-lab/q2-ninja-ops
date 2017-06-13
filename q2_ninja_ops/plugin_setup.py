@@ -16,6 +16,7 @@ plugin.methods.register_function(
     # TODO make this accept other types of sequence data as input
     inputs={'sequences': SequencesWithQuality},
     outputs=[('feature_table', FeatureTable[Frequency])],
+    # TODO add other parameters
     parameters={},
     name='Pick closed reference OTUs',
     # TODO write better docs
