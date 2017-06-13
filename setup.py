@@ -16,15 +16,15 @@ setup(
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     packages=find_packages(),
-    install_requires=['biom-format >= 2.1.5, < 2.2.0', 'scipy', 'IPython',
-                      'ipywidgets', 'seaborn', 'qiime >= 2.0.0'],
+    # TODO this plugins depends on conda package bowtie2
+    install_requires=['qiime >= 2.0.0', 'feature_table', 'scikit-bio', 'biom-format'],
     package_data={'feature_table': ['workflows/*md']},
     author="Ben, Gabe, Jai",
-    author_email="hillmannben@gmail.com",
+    author_email="hillm096@umn.edu",
     description="Functionality for working with NINJA-OPS.",
-    license="BSD",
+    license="ISC",
     url="http://www.ninja-ops.ninja",
     entry_points={
-        'qiime.plugin': ['ninja-ops=feature_table.plugin_setup:plugin']
+        'qiime.plugin': ['q2-ninja-ops=q2ninja_ops.plugin_setup:plugin']
     }
 )
