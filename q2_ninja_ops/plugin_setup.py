@@ -8,15 +8,15 @@
 
 from qiime.plugin import Plugin, Int
 
-import q2ninja_ops
+import q2_ninja_ops
 # from feature_table.artifact_types import (
     # FeatureTable, Frequency, RelativeFrequency, PresenceAbsence)
 
 plugin = Plugin(
     name='ninja-ops',
-    version=q2ninja_ops.__version__,
-    website='',
-    package='q2ninja_ops'
+    version=q2_ninja_ops.__version__,
+    website='http://ninja-ops.ninja',
+    package='q2_ninja_ops'
 )
 
 # TODO create decorator for promoting functions to workflows. This info would
