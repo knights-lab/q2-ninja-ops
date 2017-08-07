@@ -12,7 +12,7 @@ plugin = Plugin(
 )
 
 plugin.methods.register_function(
-    function=q2_ninja_ops.pick_reference_otus,
+    function=q2_ninja_ops.pick_closed_reference_otus,
     # TODO make this accept other types of sequence data as input
     inputs={'sequences': SequencesWithQuality},
     outputs=[('feature_table', FeatureTable[Frequency])],
