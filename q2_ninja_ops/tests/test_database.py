@@ -30,9 +30,9 @@ class NinjaDatabaseTests(TestPluginBase):
         self.temp_dir = tempfile.TemporaryDirectory(prefix='db')
 
         # Database Directories
-        self.database = self.get_data_path('db')
-        self.tcf = self.get_data_path('db/db.tcf')
-        self.ninja_replicate_format = self.get_data_path('db/db.db')
+        self.database = self.get_data_path('database')
+        self.tcf = os.path.join(self.database, 'db', 'db.tcf')
+        self.ninja_replicate_format = os.path.join(self.database, 'db', 'db.db')
 
     def tearDown(self):
         self.temp_dir.cleanup()
@@ -41,18 +41,17 @@ class NinjaDatabaseTests(TestPluginBase):
         current_dir = os.getcwd()
         os.chdir(self.temp_dir.name)
 
-        with redirected_stdio(stderr=os.devnull):
+        with redirected_stdio(stderr=os.devnull, stdout=os.devnull):
             database = build_database(self.reference_seqs)
 
-        db_format = NinjaOpsDBDirFmt(str(database), mode='r')
-        db_format.validate()
+        format = NinjaOpsDBDirFmt(str(database), mode='r')
+        format.validate()
 
-        # TODO: I'm not sure if we have to validate these formats individually or not
-        tcf_format = TerrificCompressedFormat(os.path.join(str(database), 'db.tcf'), mode='r')
-        tcf_format.validate()
+        format = TerrificCompressedFormat(os.path.join(str(database), 'db', 'db.tcf'), mode='r')
+        format.validate()
 
-        map_format = NinjaReplicateMapFormat(os.path.join(str(database), 'db.db'), mode='r')
-        map_format.validate()
+        format = NinjaReplicateMapFormat(os.path.join(str(database), 'db', 'db.db'), mode='r')
+        format.validate()
 
         os.chdir(current_dir)
 

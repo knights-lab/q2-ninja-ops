@@ -78,18 +78,18 @@ class NinjaOpsDBDirFmt(model.DirectoryFormat):
     # what the prefix is, just that it's constant. The prefix must be used as
     # the enclosing directory name, as well as the prefix of each filename
     # within the directory.
-    index1 = model.File('db.1.bt2', format=Bowtie2IndexFormat)
-    index2 = model.File('db.2.bt2', format=Bowtie2IndexFormat)
-    index3 = model.File('db.3.bt2', format=Bowtie2IndexFormat)
-    index4 = model.File('db.4.bt2', format=Bowtie2IndexFormat)
-    rev_index1 = model.File('db.rev.1.bt2', format=Bowtie2IndexFormat)
-    rev_index2 = model.File('db.rev.2.bt2', format=Bowtie2IndexFormat)
+    index1 = model.File('db/db.1.bt2', format=Bowtie2IndexFormat)
+    index2 = model.File('db/db.2.bt2', format=Bowtie2IndexFormat)
+    index3 = model.File('db/db.3.bt2', format=Bowtie2IndexFormat)
+    index4 = model.File('db/db.4.bt2', format=Bowtie2IndexFormat)
+    rev_index1 = model.File('db/db.rev.1.bt2', format=Bowtie2IndexFormat)
+    rev_index2 = model.File('db/db.rev.2.bt2', format=Bowtie2IndexFormat)
 
-    replicate_map = model.File('db.db', format=NinjaReplicateMapFormat)
+    replicate_map = model.File('db/db.db', format=NinjaReplicateMapFormat)
 
     # TODO does the name `sequences` make sense or is there something more
     # descriptive?
-    sequences = model.File('db.tcf', format=TerrificCompressedFormat)
+    sequences = model.File('db/db.tcf', format=TerrificCompressedFormat)
 
     # TODO is there any additional validation that needs to happen on the
     # directory format that isn't taken care of by the individual FileFormat
