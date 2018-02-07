@@ -6,4 +6,7 @@
 # The full license is in the file LICENSE, distributed with this software.
 # ----------------------------------------------------------------------------
 
-#TODO: I really don't know how to make a unittest case for this plugin within the QIIME2 paradigm
+# TODO: I really don't know how to make a unittest case for this plugin within the QIIME2 paradigm
+
+import os
+import tempfile
