@@ -23,5 +23,6 @@ setup(
     entry_points={
         'qiime2.plugins': ['q2-ninja-ops=q2_ninja_ops.plugin_setup:plugin']
     },
+    package_data={'q2_ninja_ops.data': ['data/*', 'data/db/*']},
     zip_safe=False
 )

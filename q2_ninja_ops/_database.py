@@ -23,6 +23,10 @@ def build_database(reference_sequences: DNAFASTAFormat) -> NinjaOpsDBDirFmt:
     database_dir = str(database)
 
     output_prefix = "db"
+    output_dir = os.path.join(database_dir, output_prefix)
+
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
     # Run commands to build NINJA-OPS database inside `database_dir`
     # NINJA prep the database
@@ -39,6 +43,6 @@ def build_database(reference_sequences: DNAFASTAFormat) -> NinjaOpsDBDirFmt:
 
     # Move all files to database dir from QIIME2 nebula working dir
     for file in output_files:
-        os.rename(file, os.path.join(database_dir, file))
+        os.rename(file, os.path.join(output_dir, file))
 
     return database
